@@ -1,3 +1,54 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+// ──────────────────────────────────────────────────────────────
+//  Typography: the same system serif stack as the main site.
+//  No web fonts are downloaded; each device uses what it has
+//  (Iowan / Charter on Apple, Cambria / Georgia on Windows).
+//  The config's `typography` only affects OG preview images.
+// ──────────────────────────────────────────────────────────────
+
+:root body {
+  --serif-stack: "Iowan Old Style", "Charter", "Sitka Text", Cambria, Georgia, serif;
+  --mono-stack: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, monospace;
+
+  --font-text: var(--serif-stack);
+  --font-monospace: var(--mono-stack);
+
+  --headerFont: var(--serif-stack);
+  --bodyFont: var(--serif-stack);
+  --titleFont: var(--serif-stack);
+  --codeFont: var(--mono-stack);
+}
+
+// ──────────────────────────────────────────────────────────────
+//  Quiet details, in the spirit of the main site
+// ──────────────────────────────────────────────────────────────
+
+// Site title in ink, not in link blue
+.page-title a {
+  color: var(--dark);
+}
+
+// Book-like headings: regular weight instead of heavy bold
+.page-title,
+article h1,
+.article-title {
+  font-weight: 400;
+}
+
+// Links in text: a thin light underline, as on the main site
+article a.internal,
+article a.external {
+  font-weight: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--lightgray);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+article a.internal:hover,
+article a.external:hover {
+  text-decoration-color: currentColor;
+}
